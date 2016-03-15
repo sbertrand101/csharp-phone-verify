@@ -2,10 +2,10 @@
 using Bandwidth.Net;
 using Nancy.Bootstrapper;
 using Nancy.TinyIoc;
+using Nancy;
 
 namespace PhoneVerificator
 {
-  using Nancy;
 
   public class Bootstrapper : DefaultNancyBootstrapper
   {
@@ -17,10 +17,8 @@ namespace PhoneVerificator
         ApiToken = ConfigurationManager.AppSettings.Get("apiToken"),
         ApiSecret = ConfigurationManager.AppSettings.Get("apiSecret"),
       };
-
       base.ApplicationStartup(container, pipelines);
       container.Register<DatabasebContext>();
     }
-
   }
 }

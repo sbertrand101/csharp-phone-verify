@@ -131,3 +131,8 @@ body {
   font-size: x-large;
 }
 
+.button-primary {
+    background: #00bcec;
+    color: #ffffff;
+}
+

@@ -1,0 +1,5 @@
+﻿@Master['Master']
+
+@Section['Content']
+  <p>Your number has been verified</p>
+@EndSection

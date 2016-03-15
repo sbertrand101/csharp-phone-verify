@@ -1,0 +1,11 @@
+﻿@Master['Master']
+
+@Section['Content']
+  <form class="pure-form" method="POST" action="/verify">
+    <fieldset>
+        <input name="phoneNumber" type="tel" placeholder="Phone Number" required>
+        <input type="submit" class="button-primary pure-button" name="action" value="Call">
+        <input type="submit" class="button-primary pure-button" name="action"  value="SMS">
+    </fieldset>
+  </form>
+@EndSection

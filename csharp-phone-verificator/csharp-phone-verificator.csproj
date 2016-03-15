@@ -101,6 +101,9 @@
     <Content Include="packages.config" />
     <Content Include="Views\Master.sshtml" />
     <Content Include="Views\Log.sshtml" />
+    <Content Include="Views\Verify.sshtml" />
+    <Content Include="Views\Code.sshtml" />
+    <Content Include="Views\Result.sshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
