@@ -4,7 +4,7 @@
   <form class="pure-form" method="POST" action="/code">
     <fieldset>
         <input name="code" type="number" placeholder="Confirm code" required>
-        <input name="phoneNumber" type="hidden" value="@Current.PhoneNumber">
+        <input name="phoneNumber" type="hidden" value="@Model.PhoneNumber">
         <input type="submit" class="button-primary pure-button" value="Confirm">
     </fieldset>
   </form>

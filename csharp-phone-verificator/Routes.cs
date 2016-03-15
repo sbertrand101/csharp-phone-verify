@@ -26,18 +26,19 @@ namespace PhoneVerificator
       Get["/call-callback"] = _ =>
       {
         var code = (string)Request.Query.Tag;
-        if (string.IsNullOrEmpty(code) && Request.Query.EventType != "answer")
+        if (string.IsNullOrEmpty(code) && ((string)Request.Query.EventType) != "answer")
         {
           return "";
         }
         // speak code to user and hang up
-        return new Bandwidth.Net.Xml.Response(new SpeakSentence
+        
+        return Response.AsText(new Bandwidth.Net.Xml.Response(new SpeakSentence
         {
           Sentence = $"Your confirm code is {code}",
           Locale = "en_US",
           Gender = "female",
           Voice = "julie"
-        }, new Hangup()).ToXml();
+        }, new Hangup()).ToXml(), "text/xml");
       };
 
       Post["/verify", true] = async (_, t) =>
@@ -52,7 +53,7 @@ namespace PhoneVerificator
             { "from", servicePhoneNumber },
             { "to", form.PhoneNumber },
             { "callbackHttpMethod", "GET"},
-            { "callbackUrl", $"{Request.Url.BasePath}/call-callback" },
+            { "callbackUrl", $"{Request.Url.SiteBase}/call-callback" },
             { "tag", code }
           });
         }
@@ -82,7 +83,7 @@ namespace PhoneVerificator
         {
           return Response.AsRedirect("/verify");
         }
-        entry.VerifiedTime = new DateTime();
+        entry.VerifiedTime = DateTime.Now;
         await database.SaveChangesAsync();
         return Response.AsRedirect("/result");
       };
