@@ -1,0 +1,21 @@
+﻿@Master['Master']
+
+@Section['Content']
+      <h1 class="title">Log</h1>
+      <table class="pure-table">
+        <thead>
+          <tr>
+            <th>Phone Number</th>
+            <th>Verified</th>
+          </tr>
+        </thead>
+        <tbody>
+           @Each.LogEntries
+             <tr>
+               <td>@Current.PhoneNumber</td>
+               <td>@Current.VerifiedTime</td>
+			      </tr>
+		       @EndEach
+		    </tbody>
+	  </table>
+@EndSection
